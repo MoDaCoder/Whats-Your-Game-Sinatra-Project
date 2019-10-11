@@ -9,9 +9,6 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "mo_hates_pinapples"
   end
 
-  get '/index' do 
-  end
-  
   helpers do 
     def logged_in?
       !!session[:user_id]

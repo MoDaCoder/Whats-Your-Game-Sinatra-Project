@@ -1,0 +1,10 @@
+<h1>Consoles You Own</h1>
+
+<ul>
+<% @consoles.each do |console|%>
+    <li><%=console.name%></li>
+    <li><%=console.description%></li>
+    <li><%=console.release_date%></li>
+<% end %>
+</ul>
+
