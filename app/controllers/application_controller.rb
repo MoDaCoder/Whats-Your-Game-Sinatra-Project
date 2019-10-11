@@ -2,6 +2,12 @@ require './config/environment'
 
 class ApplicationController < Sinatra::Base
 
+  get '/user' do 
+  
+    erb :"user/login"
+  end 
+
+
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'

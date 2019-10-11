@@ -5,7 +5,7 @@ class UsersController < ApplicationController
       @user = User.first
       #user should come from the session controller
       @consoles = @user.consoles
-      erb :"consoles/index"
+      erb :"user/owns"
       #displays consoles user owns
     end 
 end 
