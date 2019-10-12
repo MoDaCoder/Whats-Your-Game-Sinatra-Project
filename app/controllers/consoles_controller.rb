@@ -21,6 +21,13 @@ class ConsolesController < ApplicationController
             redirect '/consoles'
         end 
     end 
+
+    # edit
+    get '/consoles/:id/edit' do
+        @console = Console.find_by(id:params[:id])
+        erb :"consoles/edit"
+    end
+
     #create route
     post '/consoles' do 
         @console = Console.new(name:params[:name], description:params[:description], release_date:params[:release_date])
@@ -29,5 +36,5 @@ class ConsolesController < ApplicationController
         else 
             redirect "/consoles/new"
         end 
-    end 
-end 
+    end
+end

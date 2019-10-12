@@ -1,0 +1,32 @@
+body {
+color: #ffffff
+
+}
+
+/* -- Footer --- */
+
+footer.branding {
+  bottom: 0;
+  left: 0;
+  color: #000000;
+  padding-left: 10px;
+}
+
+.fixed-bottom,
+.push {
+  height: 60px;
+  ;
+}
+
+.icon {
+  padding: 0 5px;
+}
+
+footer a#website {
+  color: #000000;
+  text-decoration: underline
+}
+
+footer small {
+  font-size: 1.1em;
+}
