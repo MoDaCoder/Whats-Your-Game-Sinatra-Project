@@ -28,6 +28,10 @@ class ConsolesController < ApplicationController
         erb :"consoles/edit"
     end
 
+    patch '/consoles/:id' do
+         binding.pry
+    end 
+
     #create route
     post '/consoles' do 
         @console = Console.new(name:params[:name], description:params[:description], release_date:params[:release_date])

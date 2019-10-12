@@ -1,0 +1,10 @@
+<form action="/consoles/<%=@consoles.id%>" method= "POST">
+<input type="hidden" name="_method" value="patch">
+<ul>
+<% @consoles.each do |console|%>
+    <li><%=console.name%></li>
+    <li><%=console.description%></li>
+    <li><%=console.release_date%></li>
+<% end %>
+</form>
+
