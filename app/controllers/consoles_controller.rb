@@ -10,11 +10,6 @@ class ConsolesController < ApplicationController
         erb :"consoles/new"
     end 
 
-    #create route
-    post '/consoles' do 
-        binding.pry 
-    end 
-
     #show page (display one console)
     get '/consoles/:id' do 
 
@@ -26,10 +21,13 @@ class ConsolesController < ApplicationController
             redirect '/consoles'
         end 
     end 
-
     #create route
     post '/consoles' do 
-        binding.pry
+        @console = Console.new(name:params[:name], description:params[:description])
+        if @console.save
+            redirect "/consoles/#{@console.id}"
+        else 
+            redirect "/consoles/new"
+        end 
     end 
-
 end 
