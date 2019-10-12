@@ -23,7 +23,7 @@ class ConsolesController < ApplicationController
     end 
     #create route
     post '/consoles' do 
-        @console = Console.new(name:params[:name], description:params[:description])
+        @console = Console.new(name:params[:name], description:params[:description], release_date:params[:release_date])
         if @console.save
             redirect "/consoles/#{@console.id}"
         else 
