@@ -2,9 +2,7 @@
 
 <ul>
 <% @consoles.each do |console|%>
-    <li><a href="/consoles/<%= @console.id %>"></a><%=console.name%></li>
-    <li><%=console.description%></li>
-    <li><%=console.release_date%></li>
+    <li><a href="/consoles/<%= console.id %>"><%= console.name %></a></li>
 <% end %>
 </ul>
 
