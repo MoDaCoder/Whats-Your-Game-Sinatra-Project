@@ -1,10 +1,10 @@
-<form action="/consoles/<%=@consoles.id%>" method= "POST">
+<form action="/consoles/<%=@console.id%>" method= "POST">
 <input type="hidden" name="_method" value="patch">
-<ul>
-<% @consoles.each do |console|%>
-    <li><%=console.name%></li>
-    <li><%=console.description%></li>
-    <li><%=console.release_date%></li>
-<% end %>
+    <label for="name"> Console Name</label>
+    <input type="text" name="Name" value="<%=@console.name%>"><br>
+    <label for="description"> Console Description</label>
+    <input type="text" name="description" value="<%=@console.description%>"><br>
+    <label for="date"> Console Release Date</label>
+    <input type="date" name="release_date" value="<%=@console.release_date%>"><br>
+    <input type="submit" value="edit">
 </form>
-

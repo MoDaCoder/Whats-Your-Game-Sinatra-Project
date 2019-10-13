@@ -29,7 +29,11 @@ class ConsolesController < ApplicationController
     end
 
     patch '/consoles/:id' do
-         binding.pry
+        if @console.update(params[:console])
+            redirect "/consoles/#{@console.id}"
+        else
+            redirect "/consoles/#{@console.id}/edit"
+        end 
     end 
 
     #create route
