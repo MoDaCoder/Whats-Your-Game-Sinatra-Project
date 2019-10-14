@@ -30,16 +30,18 @@ class ConsolesController < ApplicationController
 
     patch '/consoles/:id' do
         @console = Console.find_by(id:params[:id])
+
         if @console.update(params[:console])
             redirect "/consoles/#{@console.id}"
         else
-            redirect "/consoles/#{@console.id}/edit"
+            redirect "/consoles/#{@console.id}/edit" 
+            # binding.pry
         end 
     end 
 
     #create route
     post '/consoles' do 
-        @console = Console.new(name:params[:name], description:params[:description], release_date:params[:release_date])
+        @console = Console.new(params)
         if @console.save
             redirect "/consoles/#{@console.id}"
         else 
