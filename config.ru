@@ -5,7 +5,6 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 use Rack::MethodOverride
-use GamesController
 use ConsolesController
-use UsersController
+use SessionsController
 run ApplicationController

@@ -1,9 +1,15 @@
 class ConsolesController < ApplicationController
     # Index Route (display all)
     get '/consoles' do 
-        @consoles = Console.all 
-        erb :"consoles/index"
-    end 
+        if logged_in?
+            @user = current_user 
+            # @consoles= Console.where(user_id: session[:user_id])
+            @consoles = @user.consoles
+            erb :"consoles/index"
+        else
+             redirect "/login"
+        end
+    end
 
     #newpage(new consoles)
     get '/consoles/new' do 
@@ -16,7 +22,7 @@ class ConsolesController < ApplicationController
         @console = Console.find_by(id:params[:id])
 
         if @console
-            erb :"user/owns"
+            erb :"session/owns"
         else 
             redirect '/consoles'
         end 
@@ -35,7 +41,6 @@ class ConsolesController < ApplicationController
             redirect "/consoles/#{@console.id}"
         else
             redirect "/consoles/#{@console.id}/edit" 
-            # binding.pry
         end 
     end 
 
@@ -48,4 +53,15 @@ class ConsolesController < ApplicationController
             redirect "/consoles/new"
         end 
     end
+
+    # delete
+    delete '/consoles/:id' do
+        console = Console.find_by(id:params[:id])
+        if console.destroy
+            redirect "/consoles"
+        else
+            redirect "/consoles/#{console.id}"
+        end 
+    end
+
 end

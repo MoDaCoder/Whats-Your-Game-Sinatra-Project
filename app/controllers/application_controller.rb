@@ -12,14 +12,14 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
-    set :session_secret, "mo_hates_pinapples"
+    set :session_secret, "poyo"
   end
 
   helpers do 
     def logged_in?
       !!session[:user_id]
     end
-
+ 
     def current_user
       User.find_by_id(session[:user_id]) if logged_in?
     end
