@@ -3,10 +3,11 @@
 <li><%= @console.release_date%></li>
 <h3><%= @console.id ? "Here's your console!" : "You don't have this console yet." %></h3>
 
-<!-THIS WILL ALLOW YOU TO CHOOSE A CONSOLE A USER OWNS->
+<!-THIS WILL ALLOW YOU TO CHOOSE A CONSOLE A USER OWNS (HyperLinks)->
 <form action="/consoles/<%=@console.id%>" method= "POST">
 <input type="hidden" name="_method" value="delete">
 <input type="submit" value="Delete">
 
 </form>
 <a href="/consoles/<%=@console.id%>/edit"><button>Edit</button></a>
+<a href="/consoles/<%=@console.id%>/consoles"><button>Home</button></a>
