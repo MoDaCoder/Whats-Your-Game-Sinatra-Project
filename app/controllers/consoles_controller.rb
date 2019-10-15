@@ -30,8 +30,13 @@ class ConsolesController < ApplicationController
 
     # edit
     get '/consoles/:id/edit' do
-        @console = Console.find_by(id:params[:id])
-        erb :"consoles/edit"
+
+        if @console && @console.user == current_user
+            @console = Console.find_by(id:params[:id])
+            erb :"consoles/edit"
+        else 
+          redirect '/consoles'
+        end 
     end
 
     patch '/consoles/:id' do
