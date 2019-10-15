@@ -3,7 +3,6 @@ class ConsolesController < ApplicationController
     get '/consoles' do 
         if logged_in?
             @user = current_user 
-            # @consoles= Console.where(user_id: session[:user_id])
             @consoles = @user.consoles
             erb :"consoles/index"
         else
@@ -13,9 +12,10 @@ class ConsolesController < ApplicationController
 
     #newpage(new consoles)
     get '/consoles/new' do 
+        # Checking if they are logged in
         erb :"consoles/new"
     end 
-
+ 
     #show page (display one console)
     get '/consoles/:id' do 
 
@@ -26,7 +26,7 @@ class ConsolesController < ApplicationController
         else 
             redirect '/consoles'
         end 
-    end 
+      end
 
     # edit
     get '/consoles/:id/edit' do
@@ -46,12 +46,15 @@ class ConsolesController < ApplicationController
 
     #create route
     post '/consoles' do 
-        @console = Console.new(params)
-        if @console.save
+        # @console = Console.new(params)
+        # @console.save
+        user = current_user
+        # if user == current_user
+            @console = Console.create(:name => params[:name], :description => params[:description], :release_date => params[:release_date], :user_id => user.id)
             redirect "/consoles/#{@console.id}"
-        else 
-            redirect "/consoles/new"
-        end 
+        # else 
+        #     redirect "/consoles/new"
+        # end 
     end
 
     # delete
@@ -64,4 +67,4 @@ class ConsolesController < ApplicationController
         end 
     end
 
-end
+end 
