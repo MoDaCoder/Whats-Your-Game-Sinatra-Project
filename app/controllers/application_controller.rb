@@ -2,9 +2,9 @@ require './config/environment'
 
 class ApplicationController < Sinatra::Base
 
-  get '/user' do 
+  get '/' do 
   
-    erb :"user/login"
+    erb :"session/login"
   end 
 
 
