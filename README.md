@@ -40,6 +40,13 @@ Or install it yourself as:
 ## Usage
 
 require Whats-Your-Game-Sinatra-Project
+Once downloaded from github cd `Whats-Your-Game-Sinatra-Project` in your terminal.
+
+When in 'Whats-Your-Game-Sinatra-Project' folder run `shotgun` in your terminal.
+
+Once server is running in terminal, go to http://localhost:9393/ in your URL.
+
+Next create an account and start having fun showing off your console collection!
 
 ## Development
 
